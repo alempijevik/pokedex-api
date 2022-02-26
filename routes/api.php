@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Pokemon;
+use App\Models\PokemonType;
 use App\Models\Type;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -16,6 +17,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
 Route::get('/pokemon', function() {
     return Pokemon::all();
 });
@@ -23,7 +25,7 @@ Route::get('/types', function() {
     return Type::all();
 });
 Route::get('/pokemon-types', function() {
-    return Pokemon::all();
+    return PokemonType::all();
 });
 
 

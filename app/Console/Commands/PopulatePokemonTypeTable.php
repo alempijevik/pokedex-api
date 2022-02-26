@@ -4,8 +4,9 @@ namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\File;
-use Illuminate\Support\Facades\DB;
 use App\Models\PokemonType;
+use App\Models\Type;
+use App\Models\Pokemon;
 
 class PopulatePokemonTypeTable extends Command
 {
@@ -42,14 +43,14 @@ class PopulatePokemonTypeTable extends Command
     {
         $file = File::get(storage_path('app/pokedex.json'));
         collect(json_decode($file, true))->each(function ($item) {
-            $pokemon = DB::table('pokemon')->where('name', $item['name'])->get();
-            $pokemon['type']->each(function ($type) {
-                $typeId = DB::table('types')->where('name', $type)->value('id');
+            $pokemon = Pokemon::where('name', $item['name'])->first();
+            foreach($item['type'] as $type) {
+                $typeId = Type::where('name', $type)->first();
                 PokemonType::create([
-                    'pokemon_id' => $this['id'],
+                    'pokemon_id' => $pokemon['id'],
                     'type_id' => $typeId['id'],
                 ]);
-            });
+            };
         });
     }
 }

@@ -22,6 +22,9 @@ Route::get('/pokemon', function() {
 Route::get('/types', function() {
     return Type::all();
 });
+Route::get('/pokemon-types', function() {
+    return Pokemon::all();
+});
 
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {

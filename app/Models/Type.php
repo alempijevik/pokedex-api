@@ -12,4 +12,8 @@ class Type extends Model
     protected $fillable = [
         'name'
     ];
+    public function types()
+    {
+        return $this->belongsToMany(Role::class, 'pokemon_type');
+    }
 }

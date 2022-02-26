@@ -15,4 +15,8 @@ class Pokemon extends Model
         'stats',
         'desc1'
     ];
+    public function types()
+    {
+        return $this->belongsToMany(Role::class, 'pokemon_type');
+    }
 }

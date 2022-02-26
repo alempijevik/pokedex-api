@@ -40,9 +40,9 @@ class PopulateTypesTable extends Command
         $types = ['Normal', 'Fire', 'Water', 'Grass', 'Electric', 'Ice', 'Fighting', 'Poison', 'Ground', 'Flying', 'Psychic', 'Bug', 'Rock', 'Ghost', 'Dark', 'Dragon', 'Steel', 'Fairy'];
         
         collect($types)->each(function ($type) {
-                Type::create([
-                    'name' => $type,
-                ]);
-            });
+            Type::create([
+                'name' => $type,
+            ]);
+        });
     }
 }

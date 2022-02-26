@@ -13,7 +13,9 @@ class Pokemon extends Model
     protected $fillable = [
         'name',
         'stats',
-        'desc1'
+        'desc1',
+        'species',
+        'img'
     ];
     public function types()
     {

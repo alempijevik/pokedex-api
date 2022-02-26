@@ -45,7 +45,9 @@ class PopulatePokemonTable extends Command
             Pokemon::create([
                 'name' => $pokemon['name'],
                 'stats' => $pokemon['stats'],
-                'desc1' => $pokemon['desc1']
+                'desc1' => $pokemon['desc1'],
+                'species' => $pokemon['species'],
+                'img' => $pokemon['img']
             ]);
         });
     }

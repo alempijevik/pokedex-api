@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Evolutions;
 use App\Models\Pokemon;
 use App\Models\PokemonType;
 use App\Models\Type;
@@ -26,6 +27,9 @@ Route::get('/types', function() {
 });
 Route::get('/pokemon-types', function() {
     return PokemonType::all();
+});
+Route::get('/evolutions', function() {
+    return Evolutions::all();
 });
 
 
